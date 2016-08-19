@@ -1,0 +1,65 @@
+﻿<style>
+    .colorblue {
+        color:dodgerblue;
+    }
+    .invisible {
+        visibility: hidden;
+    }
+
+    .bus-back {
+        background-position-x: -25px;
+        background-position-y: -20px;
+        padding-top: 8px;
+    }
+
+    .colorblue {
+        color: dodgerblue;
+        background-image: url(../../img/selected.png);
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    .bus-available {
+        background-image: url('../../img/avail.png');
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    .invisible {
+        visibility: hidden;
+    }
+
+    .pad-28 {
+        padding: 14px;
+    }
+
+    .bus-selected {
+        background-image: url('../../img/selected.png');
+        background-repeat: no-repeat;
+    }
+
+    .col-xs-1 {
+        width: 6%;
+    }
+
+    .color-grey {
+        background-color: lightgray;
+    }
+
+    .pointer {
+        cursor: pointer;
+    }
+</style>
+
+<div class="row" ng-repeat="row in seats track by $index">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-1 pad-20 border pointer" style="text-align:center" ng-repeat="column in row track by $index" 
+                 ng-click="selectseat($parent.$index, $index)" ng-class="{'color-grey': column == 2}" title="{{column == 0 ? 'Select this Seat' : ''}}">
+                <span style="font-weight:bold;" ng-class="{'invisible': column < 0, 'colorblue': column == 1}">
+                    {{seattexts[$parent.$index][$index]}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
